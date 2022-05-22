@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_teste/app_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,15 +10,14 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   int contador = 1;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('oi'),
+        title: Text('aplicativo'),
       ),
       body: Center(
-          child: GestureDetector(
+        /*child: GestureDetector(
         child: Text(
           "aperta $contador",
           style: TextStyle(fontSize: 50.0),
@@ -27,7 +27,13 @@ class HomePageState extends State<HomePage> {
             contador++;
           });
         },
-      )),
+      )*/
+        child: Switch(
+            value: App_controller.instance.isdark,
+            onChanged: (value) {
+              App_controller.instance.mudartema();
+            }),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
           Icons.network_check,
@@ -43,15 +49,3 @@ class HomePageState extends State<HomePage> {
     );
   }
 }
-
-/*Container(
-      child: Center(
-          child: GestureDetector(
-        child: Text("top $contador"),
-        onTap: () {
-          setState(() {
-            contador++;
-          });
-        },
-      )),
-    ) */
