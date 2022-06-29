@@ -1,20 +1,21 @@
 import 'dart:html';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'app_widget.dart';
+import 'package:alura/screens/transferencia/lista.dart';
 
-main() {
-  runApp(appwidget());
+void main() {
+  runApp(MyApp());
 }
 
-class aplicativo_top extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-      child: Text("massa",
-          textDirection: TextDirection.ltr,
-          style: TextStyle(color: Colors.black, fontSize: 80.0)),
-    ));
+    return MaterialApp(
+      theme: ThemeData.dark(),
+      home: ListaTransferencias(),
+    );
   }
 }
+
+//     janela da lista de transferencias
